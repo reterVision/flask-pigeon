@@ -1,0 +1,13 @@
+<div class="span6">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tag }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h2>{{ message.message }}</h2>
+        See?
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>Hello World!</h1>
+    {% endif %}
+</div>
