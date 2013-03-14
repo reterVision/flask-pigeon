@@ -1,7 +1,8 @@
-flask-pigeon
+Flask-Pigeon
 ============
 
-A simple Flask extension implements the similar function as Django's message framework.
+- Flask Messages Framework
+- A simple Flask extension implements the similar function as Django's messages framework.
 
 Examples
 ============
