@@ -6,20 +6,7 @@ try:
 except ImportError:
     from flask import _request_ctx_stack as stack
 from flask import request
-
-
-class Messages(object):
-    INFO = "alert-info"
-    ERROR = "alert-error"
-    SUCCESS = "alert-success"
-    WARNING = "alert-block"
-
-    def __init__(self, tag=INFO, message=""):
-        self.tag = tag
-        self.message = message
-
-    def __call__(self):
-        return {"messages": self}
+import constant
 
 
 class Pigeon(object):
@@ -68,13 +55,13 @@ class Pigeon(object):
             return []
 
     def info(self, message):
-        self.add_messages(Messages(Messages.INFO, message))
+        self.add_messages({"tag": constant.INFO, "message": message})
 
     def error(self, message):
-        self.add_messages(Messages(Messages.ERROR, message))
+        self.add_messages({"tag": constant.ERROR, "message": message})
 
     def success(self, message):
-        self.add_messages(Messages(Messages.SUCCESS, message))
+        self.add_messages({"tag": constant.SUCCESS, "message": message})
 
     def warning(self, message):
-        self.add_messages(Messages(Messages.WARNING, message))
+        self.add_messages({"tag": constant.WARNING, "message": message})
