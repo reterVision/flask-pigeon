@@ -5,6 +5,13 @@ Flask-Pigeon
 - A simple Flask extension implements the similar function as Django's messages framework.
 - Example included, but very bind to Bootstrap.
 
+Installation
+============
+
+```bash
+pip install flask-pigeon
+```
+
 Examples
 ============
 
