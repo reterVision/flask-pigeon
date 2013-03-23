@@ -40,7 +40,7 @@ class Pigeon(object):
     def before_request(self):
         request._messages = []
 
-    def add_messages(self, message):
+    def add_messages(self, request, message):
         """Add a message to the request using Pigeon"""
         if hasattr(request, "_messages"):
             return request._messages.append(message)
@@ -54,14 +54,18 @@ class Pigeon(object):
         else:
             return []
 
-    def info(self, message):
-        self.add_messages({"tag": constant.INFO, "message": message})
+    def info(self, request, message):
+        self.add_messages(request,
+                          {"tag": constant.INFO, "message": message})
 
-    def error(self, message):
-        self.add_messages({"tag": constant.ERROR, "message": message})
+    def error(self, request, message):
+        self.add_messages(request,
+                          {"tag": constant.ERROR, "message": message})
 
-    def success(self, message):
-        self.add_messages({"tag": constant.SUCCESS, "message": message})
+    def success(self, request, message):
+        self.add_messages(request,
+                          {"tag": constant.SUCCESS, "message": message})
 
-    def warning(self, message):
-        self.add_messages({"tag": constant.WARNING, "message": message})
+    def warning(self, request, message):
+        self.add_messages(request,
+                          {"tag": constant.WARNING, "message": message})
