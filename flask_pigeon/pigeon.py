@@ -17,8 +17,6 @@ class Pigeon(object):
         else:
             self.app = None
 
-    _messages = []
-
     def init_app(self, app):
         if hasattr(app, "teardown_appcontext"):
             app.teardown_appcontext(self.teardown)
