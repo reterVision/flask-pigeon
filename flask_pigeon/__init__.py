@@ -1,1 +1,2 @@
-from pigeon import Messages, Pigeon
+from _version import __version__, __author__
+from pigeon import Pigeon

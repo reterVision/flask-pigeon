@@ -7,7 +7,7 @@ Flask extension for Pigeon
 from setuptools import setup
 
 setup(name='Flask-Pigeon',
-      version='0.11.0',
+      version='0.12.0',
       description='Flask messages extension.',
       long_description=__doc__,
       author='reterVision',

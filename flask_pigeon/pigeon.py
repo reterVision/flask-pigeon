@@ -19,23 +19,23 @@ class Pigeon(object):
 
     def init_app(self, app):
         if hasattr(app, "teardown_appcontext"):
-            app.teardown_appcontext(self.teardown)
+            app.teardown_appcontext(self._teardown)
         else:
-            app.teardown_request(self.teardown)
+            app.teardown_request(self._teardown)
 
         if hasattr(app, "context_processor"):
-            app.context_processor(self.context_processor)
+            app.context_processor(self._context_processor)
 
         if hasattr(app, "before_request"):
-            app.before_request(self.before_request)
+            app.before_request(self._before_request)
 
-    def teardown(self, exception):
+    def _teardown(self, exception):
         pass
 
-    def context_processor(self):
+    def _context_processor(self):
         return dict(messages=self.get_messages())
 
-    def before_request(self):
+    def _before_request(self):
         request._messages = []
 
     def add_messages(self, request, message):

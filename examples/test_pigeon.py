@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask.ext import pigeon
 app = Flask("APP")
 pigeon = pigeon.Pigeon(app)
@@ -17,6 +17,12 @@ def index():
 def other():
     pigeon.info(request, "World")
     return render_template("world.html")
+
+
+@app.route("/redirect")
+def some_redirect():
+    pigeon.info(request, "Redirect")
+    redirect(url_for("index"))
 
 
 if __name__ == "__main__":
